@@ -1,5 +1,9 @@
 import { Button } from '@/components/ui/button';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 export default function CategoryGrid() {
   const categories = [
     {
@@ -29,22 +33,24 @@ export default function CategoryGrid() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-nowrap bg-[#e9f5f1]">
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        {categories.map((category) => (
-          <div key={category.title} className="relative group cursor-pointer shadow-sm bg-white rounded-2xl ">
-            <div className="aspect-square overflow-hidden rounded-lg ">
-              <img
-                src={category.image || '/placeholder.svg'}
-                alt={category.title}
-                className="w-full h-full object-cover transition-transform group-hover:scale-105  "
-              />
+    <section>
+      <div className="container mx-auto px-4 py-8 flex flex-nowrap bg-[#e9f5f1]">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {categories.map((category) => (
+            <div key={category.title} className="relative group cursor-pointer shadow-sm bg-white rounded-2xl ">
+              <div className="aspect-square overflow-hidden rounded-lg ">
+                <img
+                  src={category.image || '/placeholder.svg'}
+                  alt={category.title}
+                  className="w-full h-full object-cover transition-transform group-hover:scale-105  "
+                />
+              </div>
+              <h3 className="mt-2 text-center justify-center items-center font-medium p-3">{category.title}</h3>
             </div>
-            <h3 className="mt-2 text-center justify-center items-center font-medium p-3">{category.title}</h3>
-          </div>
-        ))}
+          ))}
+        </div>
+        {/* <Button /> */}
       </div>
-      {/* <Button /> */}
-    </div>
+    </section>
   );
 }
