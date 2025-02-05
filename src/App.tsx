@@ -1,8 +1,10 @@
-import Header from "./components/header"
-import CategoryGrid from "./components/category-grid"
-import HeroSection from "./components/hero-section"
-import BestSellers from "./components/best-sellers"
-import Shopbycategory from "./components/shop-by-category"
+import Header from './components/header';
+import CategoryGrid from './components/category-grid';
+import HeroSection from './components/hero-section';
+import BestSellers from './components/best-sellers';
+import Ban from './components/Ban';
+import Shopbycategory from './components/ShopbyCategory';
+import GiftsforCouples from './components/GiftsforCouples';
 
 export default function App() {
   return (
@@ -12,9 +14,10 @@ export default function App() {
         <CategoryGrid />
         <HeroSection />
         <BestSellers />
-        <Shopbycategory/>
+        <Ban />
+        <Shopbycategory />
+        <GiftsforCouples />
       </main>
     </div>
-  )
+  );
 }
-
