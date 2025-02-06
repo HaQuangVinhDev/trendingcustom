@@ -2,8 +2,8 @@ function Card() {
   return (
     <section>
       <div className="container px-12 py-5">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-[#ffebd02c] ">
-          <div className="p-8 text-center  ">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-[#ffebd02c] w-full">
+          <div className="pt-[32px] pb-[36px] px-[28px] text-center  ">
             <img
               src="https://trendingcustom.com/cdn/shop/files/transaction_1_2eaee27c-2af9-4df1-8def-51d50e3854d8_100x.png?v=1728283255"
               alt="selling"
@@ -59,22 +59,24 @@ function Card() {
         </div>
       </div>
 
-      <div className=" container p-8">
+      <div className="container p-8">
         <h2 className="text-3xl font-bold text-center pb-6">As seen on</h2>
-        <div className="flex items-center  ">
-          <div className="w-13 h-13 mx-auto  grid grid-cols-5 gap-2">
-            <img src="https://trendingcustom.com/cdn/shop/files/rfdtv_200x.png?v=1649814658" alt="blog" />
-
-            <img src="https://trendingcustom.com/cdn/shop/files/fox_200x.png?v=1649814488" alt="blog" />
-
-            <img src="https://trendingcustom.com/cdn/shop/files/newsnet_200x.png?v=1649814488" alt="blog" />
-
-            <img src="https://trendingcustom.com/cdn/shop/files/ncn_200x.png?v=1649814488" alt="blog" />
-
-            <img src="https://trendingcustom.com/cdn/shop/files/nbc_200x.png?v=1649814488" alt="blog" />
+        <div className="flex justify-center">
+          <div className="grid grid-cols-5 gap-4 w-[500px]">
+            {[
+              'https://trendingcustom.com/cdn/shop/files/rfdtv_200x.png?v=1649814658',
+              'https://trendingcustom.com/cdn/shop/files/fox_200x.png?v=1649814488',
+              'https://trendingcustom.com/cdn/shop/files/newsnet_200x.png?v=1649814488',
+              'https://trendingcustom.com/cdn/shop/files/ncn_200x.png?v=1649814488',
+              'https://trendingcustom.com/cdn/shop/files/nbc_200x.png?v=1649814488',
+            ].map((src, index) => (
+              <div key={index} className="w-20 h-20">
+                <img src={src} alt="blog" className="w-full h-full object-contain" />
+              </div>
+            ))}
           </div>
         </div>
-        <p className="text-xl text-[#9e9ea7] text-center pt-6"> And over 200 news sites</p>
+        <p className="text-xl text-[#9e9ea7] text-center pt-6">And over 200 news sites</p>
       </div>
     </section>
   );

@@ -1,11 +1,13 @@
-import { Card, CardContent } from '../../components/ui/card';
-import { Button } from '../../components/ui/button';
-import { Gift, Link } from 'lucide-react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Card, CardContent } from '../../../components/ui/card';
+import { Button } from '../../../components/ui/button';
+import { Gift } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from '../../../components/ui/carousel';
 
 const products = [
   {
@@ -71,33 +73,28 @@ export default function GiftsforCouples() {
         </p>
       </div>
 
-      {/* Swiper cho toàn bộ danh sách sản phẩm */}
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={20}
-        slidesPerView={2} // Hiển thị 2 sản phẩm trên mobile
-        breakpoints={{
-          640: { slidesPerView: 3 }, // 3 sản phẩm trên tablet
-          1024: { slidesPerView: 5 }, // 5 sản phẩm trên desktop
-        }}
-        navigation
-        className="w-full"
-      >
-        {products.map((product) => (
-          <SwiperSlide key={product.id} className="flex justify-center ">
-            <Card className="shadow-md hover:shadow-xl transition-all cursor-pointer w-72">
-              <CardContent className="p-4 flex flex-col items-center">
-                <img src={product.image} alt={product.name} className="w-full rounded-lg" />
-                <h3 className="mt-3 text-sm font-bold text-[#222] text-center">{product.name}</h3>
-                <p className="text-[#5fa436] font-bold mt-2">
-                  {product.price} <span className="line-through text-gray-500 ml-2">{product.oldPrice}</span>
-                </p>
-                <p className="text-sm text-gray-500">⭐⭐⭐⭐⭐ {product.reviews}</p>
-              </CardContent>
-            </Card>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="relative w-full">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {products.map((product) => (
+              <CarouselItem key={product.id} className="basis-1/2 sm:basis-1/3 md:basis-1/5">
+                <Card className="shadow-md hover:shadow-xl transition-all cursor-pointer w-72 mx-auto">
+                  <CardContent className="p-4 flex flex-col items-center">
+                    <img src={product.image} alt={product.name} className="w-full rounded-lg" />
+                    <h3 className="mt-3 text-sm font-bold text-[#222] text-center">{product.name}</h3>
+                    <p className="text-[#5fa436] font-bold mt-2">
+                      {product.price} <span className="line-through text-gray-500 ml-2">{product.oldPrice}</span>
+                    </p>
+                    <p className="text-sm text-gray-500">⭐⭐⭐⭐⭐ {product.reviews}</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10" />
+          <CarouselNext className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10" />
+        </Carousel>
+      </div>
 
       <a href="#">
         <div className="text-center mt-8">See all products →</div>
