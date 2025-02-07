@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, ShoppingCart, User, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import SearchBar from '../Input/SearchBar';
+import SearchBar from '../../Input/SearchBar';
 export default function Header() {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -62,7 +62,7 @@ export default function Header() {
           <Link to="/BestSeller" className="text-red-500 hover:text-[#F04B23]">
             Best Sellers
           </Link>
-          <Link to="#" className="text-gray-600 hover:text-[#F04B23]">
+          <Link to="/NewArrivals" className="text-gray-600 hover:text-[#F04B23]">
             New Arrivals
           </Link>
           <Link to="#" className="text-gray-600 hover:text-[#F04B23]">

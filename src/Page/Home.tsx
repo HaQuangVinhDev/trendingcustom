@@ -6,11 +6,11 @@ import Ban from '../components/Home/Ban';
 import Shopbycategory from '../components/Home/ShopbyCategory';
 import GiftsforCouples from '../components/Home/GiftsforCouples';
 import Bestbest from '../components/Home/best';
-import Footer from '../components/Home/footer';
 import Card from '../components/Home/Card';
 import OurBlog from '../components/Home/OurBlog';
-
 import Question from '../components/Home/question';
+import Footer from '../components/Home/footer';
+import Example from '../Example';
 
 function Home() {
   return (
