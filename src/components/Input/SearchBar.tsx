@@ -28,13 +28,13 @@ export default function SearchBar() {
           placeholder="Search for anything..."
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
-          className="pl-10  border-red-500 cursor-pointer"
+          className="pl-10  "
         />
       </div>
 
       {/* Hiển thị danh sách kết quả */}
       {searchQuery && (
-        <Command className="absolute left-0 right-0 bg-white border rounded-lg shadow-lg mt-1 z-10">
+        <Command className="absolute left-0 right-0 top-full mt-1 z-10 rounded-lg border shadow-md">
           <CommandList>
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (

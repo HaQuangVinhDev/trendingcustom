@@ -30,7 +30,7 @@ export default function OurBlog() {
   ];
 
   return (
-    <section className="container mx-auto px-4 py-8">
+    <section className="container  mx-auto px-4 py-8">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold flex items-center justify-center gap-2">Our Blog</h2>
         <p className="text-gray-600 mt-4 flex justify-center "></p>

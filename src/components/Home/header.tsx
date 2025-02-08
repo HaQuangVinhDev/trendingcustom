@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../Input/SearchBar';
 
 export default function Header() {
-  const [searchQuery, setSearchQuery] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -79,7 +78,7 @@ export default function Header() {
             isMenuOpen ? 'block' : 'hidden lg:flex'
           }`}
         >
-          <Link to="/Home" className="text-[#F04B23] hover:text-[#F04B23]/80">
+          <Link to="/" className="text-[#F04B23] hover:text-[#F04B23]/80">
             Home
           </Link>
           <Link to="/BestSeller" className="text-gray-600 hover:text-[#F04B23]">
