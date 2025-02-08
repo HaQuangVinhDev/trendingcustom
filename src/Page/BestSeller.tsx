@@ -3,7 +3,6 @@ import Banner from '../components/BestSeller/Footer/Banner';
 import Bodyheader from '../components/BestSeller/Bodyheader';
 import Footer from '../components/Home/footer';
 import Question from '../components/Home/question';
-import { Route, Routes } from 'react-router-dom';
 
 function BestSeller() {
   return (

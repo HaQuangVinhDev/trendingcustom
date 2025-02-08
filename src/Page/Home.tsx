@@ -10,7 +10,6 @@ import Card from '../components/Home/Card';
 import OurBlog from '../components/Home/OurBlog';
 import Question from '../components/Home/question';
 import Footer from '../components/Home/footer';
-import Example from '../Example';
 
 function Home() {
   return (

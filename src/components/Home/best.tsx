@@ -76,7 +76,7 @@ export default function People() {
         <h2 className="text-2xl md:text-3xl lg:text-[28px] font-bold flex items-center justify-center gap-2">
           See what people are saying!
         </h2>
-        <a href="#" className="inline-block mt-4 md:mt-8 text-blue-600 hover:underline">
+        <a href="#" className="inline-block mt-4 md:mt-8 hover:text-blue-600 ">
           See all products →
         </a>
       </div>
