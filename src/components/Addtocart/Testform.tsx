@@ -1,138 +1,86 @@
-function Test() {
+import React, { useState } from 'react';
+
+const Cart = () => {
+  const [cartItems, setCartItems] = useState([
+    {
+      id: 1,
+      name: 'Romantic Beach Landscape',
+      description: 'Couple Sitting Holding Hands Sign Posts Personalized Music Fridge Magnet',
+      price: 34.99,
+      quantity: 1,
+      shippingProtection: 2.99,
+    },
+    {
+      id: 2,
+      name: 'Romantic Beach Landscape',
+      description: 'Couple Sitting Holding Hands Sign Posts Personalized Music Fridge Magnet',
+      price: 34.99,
+      quantity: 1,
+      shippingProtection: 2.99,
+    },
+  ]);
+
+  // Calculate total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity + item.shippingProtection, 0);
+
   return (
-    <>
-      <div className="relative z-10" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-        <div className="fixed inset-0 bg-gray-500/75 transition-opacity" aria-hidden="true"></div>
-
-        <div className="fixed inset-0 overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-              <div className="pointer-events-auto w-screen max-w-md">
-                <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
-                  <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
-                    <div className="flex items-start justify-between">
-                      <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">
-                        Shopping cart
-                      </h2>
-                      <div className="ml-3 flex h-7 items-center">
-                        <button type="button" className="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
-                          <span className="absolute -inset-0.5"></span>
-                          <span className="sr-only">Close panel</span>
-                          <svg
-                            className="size-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1.5"
-                            stroke="currentColor"
-                            aria-hidden="true"
-                            data-slot="icon"
-                          >
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="mt-8">
-                      <div className="flow-root">
-                        <ul role="list" className="-my-6 divide-y divide-gray-200">
-                          <li className="flex py-6">
-                            <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img
-                                src="https://tailwindui.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
-                                alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                className="size-full object-cover"
-                              />
-                            </div>
-
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <a href="#">Throwback Hip Bag</a>
-                                  </h3>
-                                  <p className="ml-4">$90.00</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">Salmon</p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">Qty 1</p>
-
-                                <div className="flex">
-                                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                          <li className="flex py-6">
-                            <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <img
-                                src="https://tailwindui.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
-                                alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                className="size-full object-cover"
-                              />
-                            </div>
-
-                            <div className="ml-4 flex flex-1 flex-col">
-                              <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
-                                  <h3>
-                                    <a href="#">Medium Stuff Satchel</a>
-                                  </h3>
-                                  <p className="ml-4">$32.00</p>
-                                </div>
-                                <p className="mt-1 text-sm text-gray-500">Blue</p>
-                              </div>
-                              <div className="flex flex-1 items-end justify-between text-sm">
-                                <p className="text-gray-500">Qty 1</p>
-
-                                <div className="flex">
-                                  <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                    Remove
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
-                    <div className="flex justify-between text-base font-medium text-gray-900">
-                      <p>Subtotal</p>
-                      <p>$262.00</p>
-                    </div>
-                    <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-                    <div className="mt-6">
-                      <a
-                        href="#"
-                        className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                      >
-                        Checkout
-                      </a>
-                    </div>
-                    <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
-                      <p>
-                        or
-                        <button type="button" className="font-medium text-indigo-600 hover:text-indigo-500">
-                          Continue Shopping
-                          <span aria-hidden="true"> &rarr;</span>
-                        </button>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="max-w-screen-lg mx-auto p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold">Shopping Cart</h1>
+        <div className="text-sm text-gray-600">
+          <span>Your cart will expire in 08:40 minutes!</span>
         </div>
       </div>
-    </>
-  );
-}
+      <div className="space-y-6">
+        {cartItems.map((item) => (
+          <div className="flex items-center justify-between bg-gray-100 p-4 rounded-lg" key={item.id}>
+            <div className="flex items-center space-x-4">
+              <img
+                src="your-image-path.jpg" // Replace with your product image
+                alt={item.name}
+                className="w-24 h-24 object-cover rounded-lg"
+              />
+              <div className="flex flex-col">
+                <h3 className="text-lg font-semibold">{item.name}</h3>
+                <p className="text-sm text-gray-600">{item.description}</p>
+                <span className="text-gray-800 font-medium">${item.price.toFixed(2)}</span>
+                <span className="text-gray-600 text-sm">+ Shipping Protection: ${item.shippingProtection}</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <button
+                onClick={() =>
+                  setCartItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i)))
+                }
+                className="bg-gray-200 p-2 rounded-full"
+              >
+                -
+              </button>
+              <span className="text-lg">{item.quantity}</span>
+              <button
+                onClick={() =>
+                  setCartItems((prev) => prev.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i)))
+                }
+                className="bg-gray-200 p-2 rounded-full"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
-export default Test;
+      <div className="mt-6 flex justify-between items-center bg-gray-100 p-4 rounded-lg">
+        <div className="text-lg font-semibold">Subtotal</div>
+        <div className="text-xl font-bold">${totalPrice.toFixed(2)}</div>
+      </div>
+
+      <div className="mt-6 flex justify-between">
+        <button className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600">Secure Checkout</button>
+        <button className="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-600">PayPal</button>
+      </div>
+    </div>
+  );
+};
+
+export default Cart;

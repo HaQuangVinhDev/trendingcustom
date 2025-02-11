@@ -1,7 +1,9 @@
+import Test from '../components/Addtocart/Testform2';
+
 function NewArrivals() {
   return (
     <div>
-      <h1>NewArrival</h1>
+      <Test />
     </div>
   );
 }
