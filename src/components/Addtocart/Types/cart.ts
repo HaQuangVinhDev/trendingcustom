@@ -10,5 +10,8 @@ export interface Product {
 
 export interface CartItem extends Product {
   quantity: number;
+  name: string;
+  material: string;
+  size: string;
   shippingProtection: boolean;
 }

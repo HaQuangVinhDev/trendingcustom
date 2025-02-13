@@ -50,6 +50,7 @@
     "command": "^0.0.5",
     "date-fns": "3.6.0",
     "embla-carousel-react": "8.5.1",
+    "expo": "^52.0.32",
     "init": "^0.1.2",
     "input": "^1.0.1",
     "input-otp": "1.4.1",

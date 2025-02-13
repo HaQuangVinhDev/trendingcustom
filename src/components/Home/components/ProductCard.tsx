@@ -9,7 +9,7 @@ interface ProductCardProps {
 export const ProductCard: FC<ProductCardProps> = ({ product }) => {
   return (
     <div className="group">
-      <a href={product.href} className="block overflow-hidden">
+      <a href={product.href} className="block overflow-hidden ">
         <div className="relative aspect-square overflow-hidden rounded-lg">
           <img
             src={product.image || '/placeholder.svg'}

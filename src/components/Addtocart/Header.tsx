@@ -59,7 +59,10 @@ export default function Header() {
             <div className="flex items-center gap-4">
               <Heart className="text-gray-600 hover:text-[#F04B23] cursor-pointer" />
               <User className="text-gray-600 hover:text-[#F04B23] cursor-pointer" />
-              <ShoppingCart className="text-gray-600 hover:text-[#F04B23] cursor-pointer" />
+              <Link to="/shoppingcart">
+                {' '}
+                <ShoppingCart className="text-gray-600 hover:text-[#F04B23] cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>

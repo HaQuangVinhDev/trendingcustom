@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Checkbox } from '@/components/ui/checkbox';
+import { Button } from '../../../../../components/ui/button';
+import { Card } from '../../../../../components/ui/card';
+import { Checkbox } from '../../../../../components/ui/checkbox';
 import { Eye, Pencil, Minus, Plus, Trash2 } from 'lucide-react';
 
 import type { CartItem as CartItemType } from '../../Types/cart';

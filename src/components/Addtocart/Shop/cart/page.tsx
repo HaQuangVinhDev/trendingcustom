@@ -1,5 +1,3 @@
-'use client';
-
 import { useEffect, useState } from 'react';
 import { CartItem } from '../components/CartItem';
 import { CartSummary } from '../components/CartSummary';

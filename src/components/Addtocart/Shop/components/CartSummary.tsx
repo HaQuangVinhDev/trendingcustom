@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Button } from '../../../../../components/ui/button';
+import { Card } from '../../../../../components/ui/card';
 import type React from 'react'; // Added import for React
 
 interface CartSummaryProps {

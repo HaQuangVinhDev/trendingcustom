@@ -5,7 +5,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from '../../../components/ui/carousel';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '../../../components/ui/card';
 import { Button } from '../../../components/ui/button';
 import { useState } from 'react';
@@ -63,29 +63,34 @@ function Bodyheader() {
 
       {/* Body */}
       <div className="container mt-8 px-16 py-14 mx-auto max-w-full">
-        <Carousel className="w-full">
-          <CarouselContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {currentItems.map((item) => (
-              <CarouselItem key={item.id}>
-                <Card>
-                  <CardContent className="flex flex-col items-center p-4">
-                    <img
-                      src={item.image || '/placeholder.jpg'}
-                      alt={item.title}
-                      className="w-full h-48 object-cover rounded-md"
-                    />
-                    <h3 className="text-sm font-semibold mt-2 text-center line-clamp-2">{item.title}</h3>
-                    <p className="text-[#6fbc8e] font-bold">
-                      {item.price} <span className="line-through text-gray-500">{item.oldPrice}</span>
-                    </p>
-                    <span className="text-yellow-400">{'★'.repeat(5)}</span>
-                    <span className="ml-1 text-xs text-gray-500">({item.reviews})</span>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        {/* Carousel */}
+        <Link to="/shoppingcart">
+          <Carousel className="w-full">
+            <CarouselContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+              {currentItems.map((item) => (
+                <CarouselItem key={item.id}>
+                  <Card className="cursor-pointer">
+                    <a href="#">
+                      <CardContent className="flex flex-col items-center p-4">
+                        <img
+                          src={item.image || '/placeholder.jpg'}
+                          alt={item.title}
+                          className="w-full h-48 object-cover rounded-md"
+                        />
+                        <h3 className="text-sm font-semibold mt-2 text-center line-clamp-2">{item.title}</h3>
+                        <p className="text-[#6fbc8e] font-bold">
+                          {item.price} <span className="line-through text-gray-500">{item.oldPrice}</span>
+                        </p>
+                        <span className="text-yellow-400">{'★'.repeat(5)}</span>
+                        <span className="ml-1 text-xs text-gray-500">({item.reviews})</span>
+                      </CardContent>
+                    </a>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </Link>
 
         {/* Pagination */}
         <Pagination className="mt-4 flex justify-center">

@@ -1,12 +1,10 @@
-'use client';
-
 import { useState } from 'react';
 import { Button } from '../../../../../components/ui/button';
 import { Card } from '../../../../../components/ui/card';
 import { Checkbox } from '../../../../../components/ui/checkbox';
 import { Eye, Pencil, Minus, Plus, Trash2 } from 'lucide-react';
 
-export default function ShoppingCart() {
+export default function ShoppingCartPage() {
   const [minutes, setMinutes] = useState(9);
   const [seconds, setSeconds] = useState(51);
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({

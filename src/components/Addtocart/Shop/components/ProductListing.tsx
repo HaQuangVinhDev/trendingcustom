@@ -1,30 +1,33 @@
-'use client';
-
-import type React from 'react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-
+import React from 'react';
+import { Button } from '../../../../../components/ui/button';
+import { Card } from '../../../../../components/ui/card';
 import type { Product } from '../../Types/cart';
 import { ShoppingCart } from 'lucide-react';
 
-import { useCart } from '../contexts/CartContext';
-import { Link } from 'react-router-dom';
-
 interface ProductListingProps {
   products: Product[];
+  onAddToCart: (product: Product) => void;
 }
 
-export const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
-  const { addToCart, getTotalQuantity } = useCart();
+export const ProductListing: React.FC<ProductListingProps> = ({ products, onAddToCart }) => {
+  const [cartItemCount, setCartItemCount] = React.useState(0);
+
+  React.useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      const cartItems = JSON.parse(storedCart);
+      setCartItemCount(cartItems.reduce((total: any, item: { quantity: any }) => total + item.quantity, 0));
+    }
+  }, []);
 
   return (
     <>
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-semibold">Featured Products</h2>
-        <Link to="/cart" className="flex items-center">
+        <a href="/cart" className="flex items-center">
           <ShoppingCart className="mr-2" />
-          <span>Cart ({getTotalQuantity()})</span>
-        </Link>
+          <span>Cart ({cartItemCount})</span>
+        </a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {products.map((product) => (
@@ -46,7 +49,7 @@ export const ProductListing: React.FC<ProductListingProps> = ({ products }) => {
                   <span className="text-sm text-gray-500 line-through ml-2">${product.originalPrice.toFixed(2)}</span>
                 )}
               </div>
-              <Button onClick={() => addToCart(product)}>Add to Cart</Button>
+              <Button onClick={() => onAddToCart(product)}>Add to Cart</Button>
             </div>
           </Card>
         ))}

@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import ProductList from './ProductList';
 import ShoppingCart from './Shoppingcart';
-import type { Product } from '../Types/type';
 import Shopcartform from './Shopcartform';
+import type { Product } from '../Types/product';
+import Header from '../../BestSeller/Header/Home';
+import Footer from '../../Home/footer';
 
 export default function App() {
-  const [cartItems, setCartItems] = useState<{ product: Product; quantity: number }[]>([]);
+  const [cartItems, setCartItems] = useState<{ product: Product; quantity: number }[]>(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+  }, [cartItems]);
 
   const addToCart = (product: Product) => {
     setCartItems((prevItems) => {
@@ -23,14 +33,24 @@ export default function App() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">My Shop</h1>
-      <div className="flex flex-col md:flex-row gap-8">
-        <ProductList addToCart={addToCart} /> <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+      <div className="mb-10">
+        <Header />
       </div>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <div className="flex flex-col md:flex-row gap-8">
+              <ProductList addToCart={addToCart} />
+              <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+            </div>
+          }
+        />
+        <Route path="/cart" element={<Shopcartform />} />
+      </Routes>
 
-      <div>
-        {' '}
-        <Shopcartform />
+      <div className="mt-10">
+        <Footer />
       </div>
     </div>
   );

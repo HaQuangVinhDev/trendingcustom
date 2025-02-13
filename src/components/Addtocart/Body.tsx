@@ -4,7 +4,7 @@ import image from '../../../public/asset/images/consider';
 import Thumbnail from '../Addtocart/Thumnail/index';
 import Testform from './Testform';
 import Testform2 from './Testform2';
-import Index from './shoppingcart/index';
+
 const products = [
   {
     image: image.product1,
@@ -76,7 +76,6 @@ function Body() {
         <Features />
         <Testform />
         <Testform2 />
-        <Index />
       </div>
       <div className="mt-10"></div>
     </div>

@@ -2,7 +2,7 @@ import ProductImage from './ProductImage';
 import ProductInfo from './ProductInfo';
 import PaymentSection from './PaymentSection';
 import Imagethumbnail from '../../../asset/images/thumbnail';
-import Test from './test';
+// import Test from './Test';
 const thumbnails = [Imagethumbnail.product1, Imagethumbnail.product2, Imagethumbnail.product3, Imagethumbnail.product4];
 
 const ProductPage = () => {

@@ -1,5 +1,4 @@
-'use client';
-
+// ../hooks/useTimer.ts
 import { useState, useEffect, useCallback } from 'react';
 
 export const useTimer = (initialMinutes: number, initialSeconds: number) => {
